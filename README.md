@@ -12,7 +12,7 @@ This is experimental, and it might be interesting to compare with human-curated 
 To reproduce, make sure these tools are available; set up following their respective docs:
 - [robot v1.9.6](http://robot.obolibrary.org/)
 - [accent v0.45](https://github.com/anngvu/accent)
-- [OpenAI API key](https://platform.openai.com/docs/quickstart) *See [OpenAI usage costs](https://github.com/anngvu/accent/tree/web-ui?tab=readme-ov-file#openai-usage-costs).
+- [OpenAI API key](https://platform.openai.com/docs/quickstart) *See [OpenAI usage costs](https://github.com/anngvu/accent/tree/web-ui?tab=readme-ov-file#openai-usage-costs](https://github.com/anngvu/bioc-curation/?tab=readme-ov-file#openai-usage-costs).
 - [jq v1.7](https://jqlang.github.io/jq/) 
 
 1. `prep-edam.sh`: Script to download the latest stable EDAM, select terms useable for annotation, and then put into a JSON format `enums.json` for use with OpenAI.
