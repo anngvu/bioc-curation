@@ -24,7 +24,7 @@ To reproduce, make sure these tools are available; set up following their respec
     - Remove `topics` and `function` since they go into their own subschema below.
     - For Main schema, the AI is given the Bioconductor package home page as the best source given the already concise, well-structured info there. 
   - EDAM mapping schema (`edammap.json`):
-    - Contains `topics` and `function` components but with EDAM concepts inserted using `anyOf`.
+    - Contains `topics` and `function` components but with EDAM concepts inserted as enums.
     - One reason the EDAM mapping schema is factored out is because it can be pretty big with concepts inserted to enable AI to reference the ontology. But also, this part of the schema is matched to a more "optimal" text source to fill in `function`. Our human curator's intuition is to give it a package vignette instead for best results, since the vignette is supposed to demonstrate what the package does, while a terse package description will rarely mention file formats or example commands.
 
 3. AI processing with custom prompt: 
@@ -36,7 +36,9 @@ To reproduce, make sure these tools are available; set up following their respec
   Instruct the agent to use your vignette link to generate JSON for another schema at .
   ```
 
-4. Merge the data and re-validate with original bio.tools schema.
+4. Post-processing: Fill in term ids given labels. 
+
+5. Post-processing: Merge the data and re-validate with original bio.tools schema.
 
 
 ### OpenAI usage costs
