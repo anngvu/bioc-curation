@@ -76,6 +76,7 @@ def clean_constraints:
               | del(.items.properties.uri) 
               | .items.properties.term.enum = $enums.topics
               | .items.required = ["term"]
+              | .items.additionalProperties = false
               | clean_constraints),
     "function": (.definitions.tool.properties.function 
     | del(.items.properties.operation.items.properties.uri) 
@@ -83,8 +84,11 @@ def clean_constraints:
     | del(.items.properties.note)
     | del(.items.properties.cmd)
     | .items.properties.operation.required = ["term"]
+    | .items.properties.input.items.additionalProperties = false
     | .items.properties.input.items.required = ["data", "format"]
     | .items.properties.output.items.required = ["data", "format"]
+    | .items.properties.output.items.additionalProperties = false
+    | .items.additionalProperties = false
     | .items.required = ["operation", "input", "output"]
     | clean_constraints),
   },
@@ -99,6 +103,7 @@ def clean_constraints:
                               }
                   },
                   "required": ["term"],
+                  "additionalProperties": false,
                 },
     "EDAMformat":  { "title" : "EDAM format concept", 
                      "type": "object", 
@@ -108,6 +113,7 @@ def clean_constraints:
                                }
                       },
                     "required": ["term"],
+                    "additionalProperties": false,
                    },
   }
 }' biotoolsj.json > edammap.json
