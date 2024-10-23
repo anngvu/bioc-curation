@@ -1,39 +1,51 @@
 #!/bin/bash
 
-jq '{
+jq '
+def clean_constraints:
+  walk(
+    if type == "object" then
+      del(.minLength, .maxLength, .pattern, .format,
+          .minimum, .maximum, .multipleOf,
+          .patternProperties, .unevaluatedProperties, .propertyNames, .minProperties, .maxProperties,
+          .unevaluatedItems, .contains, .minContains, .maxContains, .minItems, .maxItems, .uniqueItems)
+    else .
+    end
+  );
+
+{
   "description": .description,
   "type": "object",
   "properties": {
-    "name": (.definitions.tool.properties.name | del(.minLength, .maxLength, .pattern, .format)),
+    "name": (.definitions.tool.properties.name | clean_constraints),
     "description": "Description of a bioinformatics tool.",
-    "homepage": (.definitions.tool.properties.homepage | del(.minLength, .maxLength, .pattern, .format)),
-    "version": (.definitions.tool.properties.version | del(.minLength, .maxLength, .pattern, .format)),
-    "otherID": (.definitions.tool.properties.otherID | .type = ["string", "null"] | del(.minLength, .maxLength, .pattern, .format)),
-    "toolType": (.definitions.tool.properties.toolType | .type = ["string", "null"] | del(.minLength, .maxLength, .pattern, .format)),
-    "operatingSystem": (.definitions.tool.properties.operatingSystem | .type = ["string", "null"] | del(.minLength, .maxLength, .pattern, .format)),
-    "language": (.definitions.tool.properties.language | .type = ["string", "null"] | del(.minLength, .maxLength, .pattern, .format)),
-    "license": (.definitions.tool.properties.license | .type = ["string", "null"] | del(.minLength, .maxLength, .pattern, .format)),
-    "collectionID": (.definitions.tool.properties.collectionID | .type = ["string", "null"] | del(.minLength, .maxLength, .pattern, .format)),
-    "maturity": (.definitions.tool.properties.maturity | .type = ["string", "null"] | del(.minLength, .maxLength, .pattern, .format)),
-    "cost": (.definitions.tool.properties.cost | .type = ["string", "null"] | del(.minLength, .maxLength, .pattern, .format)),
-    "accessibility": (.definitions.tool.properties.accessibility | .type = ["string", "null"] | del(.minLength, .maxLength, .pattern, .format)),
-    "elixirPlatform": (.definitions.tool.properties.elixirPlatform | .type = ["string", "null"] | del(.minLength, .maxLength, .pattern, .format)),
-    "elixirNode": (.definitions.tool.properties.elixirNode | .type = ["string", "null"] | del(.minLength, .maxLength, .pattern, .format)), 
-    "elixirCommunity": (.definitions.tool.properties.elixirCommunity | .type = ["string", "null"] | del(.minLength, .maxLength, .pattern, .format)),
-    "link": (.definitions.tool.properties.link | .type = ["string", "null"] | del(.minLength, .maxLength, .pattern, .format)),
-    "download": (.definitions.tool.properties.download | .type = ["string", "null"] | del(.minLength, .maxLength, .pattern, .format)),
-    "documentation": (.definitions.tool.properties.documentation | .type = ["string", "null"] | del(.minLength, .maxLength, .pattern, .format)),
-    "publication": (.definitions.tool.properties.publication | .type = ["string", "null"] | del(.minLength, .maxLength, .pattern, .format)),
-    "credit": (.definitions.tool.properties.credit | .type = ["string", "null"] | del(.minLength, .maxLength, .pattern, .format))
+    "homepage": (.definitions.tool.properties.homepage | clean_constraints),
+    "version": (.definitions.tool.properties.version | clean_constraints),
+    "otherID": (.definitions.tool.properties.otherID | .type = ["string", "null"] | clean_constraints),
+    "toolType": (.definitions.tool.properties.toolType | .type = ["string", "null"] | clean_constraints),
+    "operatingSystem": (.definitions.tool.properties.operatingSystem | .type = ["string", "null"] | clean_constraints),
+    "language": (.definitions.tool.properties.language | .type = ["string", "null"] | clean_constraints),
+    "license": (.definitions.tool.properties.license | .type = ["string", "null"] | clean_constraints),
+    "collectionID": (.definitions.tool.properties.collectionID | .type = ["string", "null"] | clean_constraints),
+    "maturity": (.definitions.tool.properties.maturity | .type = ["string", "null"] | clean_constraints),
+    "cost": (.definitions.tool.properties.cost | .type = ["string", "null"] | clean_constraints),
+    "accessibility": (.definitions.tool.properties.accessibility | .type = ["string", "null"] | clean_constraints),
+    "elixirPlatform": (.definitions.tool.properties.elixirPlatform | .type = ["string", "null"] | clean_constraints),
+    "elixirNode": (.definitions.tool.properties.elixirNode | .type = ["string", "null"] | clean_constraints),
+    "elixirCommunity": (.definitions.tool.properties.elixirCommunity | .type = ["string", "null"] | clean_constraints),
+    "link": (.definitions.tool.properties.link | .type = ["string", "null"] | clean_constraints),
+    "download": (.definitions.tool.properties.download | .type = ["string", "null"] | clean_constraints),
+    "documentation": (.definitions.tool.properties.documentation | .type = ["string", "null"] | clean_constraints),
+    "publication": (.definitions.tool.properties.publication | .type = ["string", "null"] | clean_constraints),
+    "credit": (.definitions.tool.properties.credit | .type = ["string", "null"] | clean_constraints)
   },
   "required": ["name", "description", "homepage", "version", "otherID", "toolType", 
                "operatingSystem", "language", "license", "collectionID", "maturity", 
                "cost", "accessibility", "elixirPlatform", "elixirNode", "elixirCommunity",
                "link", "download", "documentation", "publication", "credit"],
   "definitions": {
-    "urlftpType": (.definitions.urlftpType | del(.minLength, .maxLength, .pattern, .format)),
-    "versionType": (.definitions.versionType | del(.minLength, .maxLength, .pattern, .format)),
-    "textType": (.definitions.textType | del(.minLength, .maxLength, .pattern, .format))
+    "urlftpType": (.definitions.urlftpType | clean_constraints),
+    "versionType": (.definitions.versionType | clean_constraints),
+    "textType": (.definitions.textType | clean_constraints)
   },
   "additionalProperties": false
 }' biotoolsj.json > base.json
