@@ -51,28 +51,51 @@ def clean_constraints:
 }' biotoolsj.json > base.json
 
 
-jq --argjson enums "$(cat enums.json)" '{
+jq --argjson enums "$(cat enums.json)" '
+
+def clean_constraints:
+  walk(
+    if type == "object" then
+      del(.minLength, .maxLength, .pattern,
+          .minimum, .maximum, .multipleOf,
+          .patternProperties, .unevaluatedProperties, .propertyNames, .minProperties, .maxProperties,
+          .unevaluatedItems, .contains, .minContains, .maxContains, .minItems, .maxItems, .uniqueItems, 
+          .anyOf, ."$comment", .examples)
+    else .
+    end
+  );
+
+{
   "description": "EDAM mapping schema for topics and function.",
   "type": "object",
   "properties": {
     "topic": (.definitions.tool.properties.topic 
               | del(.items.properties.uri) 
               | .items.properties.term.enum = $enums.topics
-              | .items.required = ["topic"]),
-    "function": (.definitions.tool.properties.function | del(.items.properties.operation.items.properties.uri) 
+              | .items.required = ["term"]
+              | clean_constraints),
+    "function": (.definitions.tool.properties.function 
+    | del(.items.properties.operation.items.properties.uri) 
     | .items.properties.operation.items.properties.term.enum = $enums.operations 
-    | .items.properties.note = null
-    | .items.properties.cmd = null
-    | .items.required = ["operation", "input", "output"]),
+    | del(.items.properties.note)
+    | del(.items.properties.cmd)
+    | .items.properties.operation.required = ["term"]
+    | .items.properties.input.required = ["data", "format"]
+    | .items.properties.output.required = ["data", "format"]
+    | .items.required = ["operation", "input", "output"]
+    | clean_constraints),
   },
   "required": ["topic", "function"],
   "additionalProperties": false,
   "definitions": {
     "EDAMdata": { "title" : "EDAM data concept", 
                   "type": "object", 
-                  "properties": {"type": "string",  
-                                 "enum": $enums.data
-                                }
+                  "properties": {
+                     "term": { "type": "string",  
+                                "enum": $enums.data
+                              }
+                  },
+                  "required": ["term"],
                 },
     "EDAMformat":  { "title" : "EDAM format concept", 
                      "type": "object", 
@@ -81,7 +104,7 @@ jq --argjson enums "$(cat enums.json)" '{
                                 "enum": $enums.formats
                                }
                       },
-                      "required": ["term"],
+                    "required": ["term"],
                    },
   }
 }' biotoolsj.json > edammap.json
