@@ -6,23 +6,11 @@
       "title": "Tool name",
       "description": "Canonical software name assigned by the software developer or service provider.",
       "type": "string",
-      "minLength": 1,
-      "maxLength": 100,
-      "pattern": "^([ \\(-\\)\\+-\\.0-;A-Z_a-z  ᠎ -   　]*)$",
       "examples": [
         "needle"
       ]
     },
-    "description": {
-      "title": "Tool description",
-      "description": "Textual description of the software.\nThis can be a few sentences copy-pasted from the software homepage.",
-      "type": "string",
-      "minLength": 10,
-      "maxLength": 1000,
-      "examples": [
-        "needle reads two input sequences and writes their optimal global sequence alignment to file. It uses the Needleman-Wunsch alignment algorithm to find the optimum alignment (including gaps) of two sequences along their entire length. The algorithm uses a dynamic programming method to ensure the alignment is optimum, by exploring all possible alignments and choosing the best."
-      ]
-    },
+    "description": "Description of a bioinformatics tool.",
     "homepage": {
       "$ref": "#/definitions/urlftpType",
       "title": "Tool homepage URL",
@@ -1032,6 +1020,9 @@
     "maturity",
     "cost",
     "accessibility",
+    "elixirPlatform",
+    "elixirNode",
+    "elixirCommunity",
     "link",
     "download",
     "documentation",
@@ -1051,9 +1042,6 @@
       "title": "Tool version information",
       "description": "Tool version label or version range.",
       "type": "string",
-      "minLength": 1,
-      "maxLength": 100,
-      "pattern": "^([ \\(-\\)\\+-\\.0-;A-Z_a-z  ᠎ -   　]*)$",
       "$comment": "The name has a 100 character limit and may only contain space, uppercase and lowercase English letters, decimal digits, plus symbol, period, comma, dash, colon, semicolon and parentheses.",
       "examples": [
         "2.0 - 2.7"
@@ -1063,8 +1051,6 @@
       "title": "Free text",
       "description": "Free text with a minimum length of 10 and maximum length of 1000.",
       "type": "string",
-      "minLength": 10,
-      "maxLength": 1000,
       "$comment": "Line feeds, carriage returns, tabs, leading and trailing spaces, and multiple spaces are not allowed / will be removed.",
       "examples": [
         "Comment about the link."

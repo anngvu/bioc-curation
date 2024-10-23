@@ -18,7 +18,8 @@ To reproduce, make sure these tools are available; set up following their respec
 1. `prep-edam.sh`: Script to download the latest stable EDAM, select terms useable for annotation, and then put into a JSON format `enums.json` for use with OpenAI.
 2. `subschema.sh`: Wrangling bio.tools schema with `jq` to create the version compatible with OpenAI (see https://platform.openai.com/docs/guides/structured-outputs/supported-schemas). The schema is split into two schemas for different curation approaches:
   - Base schema (`base.json`):
-    - A single tool object instead of current array because extraction will be per-tool. 
+    - A single tool object instead of current array because extraction will be per-tool.
+    - Remove [unsupported type-specific keywords](https://platform.openai.com/docs/guides/structured-outputs/some-type-specific-keywords-are-not-yet-supported). 
     - Remove `biotoolsID` and `biotoolsCURIE`, which are normally admin-assigned and not curated. 
     - Remove `relation` component since it's out of scope to link similar existing bio.tools tools here.  
     - Remove `topics` and `function` since they go into their own subschema below.

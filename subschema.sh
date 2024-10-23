@@ -4,39 +4,39 @@ jq '{
   "description": .description,
   "type": "object",
   "properties": {
-    "name": .definitions.tool.properties.name,
+    "name": (.definitions.tool.properties.name | del(.minLength, .maxLength, .pattern, .format)),
     "description": "Description of a bioinformatics tool.",
-    "homepage": .definitions.tool.properties.homepage,
-    "version": .definitions.tool.properties.version,
-    "otherID": (.definitions.tool.properties.otherID | .type = ["string", "null"]),
-    "toolType": (.definitions.tool.properties.toolType | .type = ["string", "null"]),
-    "operatingSystem": (.definitions.tool.properties.operatingSystem | .type = ["string", "null"]),
-    "language": (.definitions.tool.properties.language | .type = ["string", "null"]),
-    "license": (.definitions.tool.properties.license | .type = ["string", "null"]),
-    "collectionID": (.definitions.tool.properties.collectionID | .type = ["string", "null"]),
-    "maturity": (.definitions.tool.properties.maturity | .type = ["string", "null"]),
-    "cost": (.definitions.tool.properties.cost | .type = ["string", "null"]),
-    "accessibility": (.definitions.tool.properties.accessibility | .type = ["string", "null"]),
-    "elixirPlatform": (.definitions.tool.properties.elixirPlatform | .type = ["string", "null"]),
-    "elixirNode": (.definitions.tool.properties.elixirNode | .type = ["string", "null"]),
-    "elixirCommunity": (.definitions.tool.properties.elixirCommunity | .type = ["string", "null"]),
-    "link": (.definitions.tool.properties.link | .type = ["string", "null"]),
-    "download": (.definitions.tool.properties.download | .type = ["string", "null"]),
-    "documentation": (.definitions.tool.properties.documentation | .type = ["string", "null"]),
-    "publication": (.definitions.tool.properties.publication | .type = ["string", "null"]),
-    "credit": (.definitions.tool.properties.credit | .type = ["string", "null"])
+    "homepage": (.definitions.tool.properties.homepage | del(.minLength, .maxLength, .pattern, .format)),
+    "version": (.definitions.tool.properties.version | del(.minLength, .maxLength, .pattern, .format)),
+    "otherID": (.definitions.tool.properties.otherID | .type = ["string", "null"] | del(.minLength, .maxLength, .pattern, .format)),
+    "toolType": (.definitions.tool.properties.toolType | .type = ["string", "null"] | del(.minLength, .maxLength, .pattern, .format)),
+    "operatingSystem": (.definitions.tool.properties.operatingSystem | .type = ["string", "null"] | del(.minLength, .maxLength, .pattern, .format)),
+    "language": (.definitions.tool.properties.language | .type = ["string", "null"] | del(.minLength, .maxLength, .pattern, .format)),
+    "license": (.definitions.tool.properties.license | .type = ["string", "null"] | del(.minLength, .maxLength, .pattern, .format)),
+    "collectionID": (.definitions.tool.properties.collectionID | .type = ["string", "null"] | del(.minLength, .maxLength, .pattern, .format)),
+    "maturity": (.definitions.tool.properties.maturity | .type = ["string", "null"] | del(.minLength, .maxLength, .pattern, .format)),
+    "cost": (.definitions.tool.properties.cost | .type = ["string", "null"] | del(.minLength, .maxLength, .pattern, .format)),
+    "accessibility": (.definitions.tool.properties.accessibility | .type = ["string", "null"] | del(.minLength, .maxLength, .pattern, .format)),
+    "elixirPlatform": (.definitions.tool.properties.elixirPlatform | .type = ["string", "null"] | del(.minLength, .maxLength, .pattern, .format)),
+    "elixirNode": (.definitions.tool.properties.elixirNode | .type = ["string", "null"] | del(.minLength, .maxLength, .pattern, .format)), 
+    "elixirCommunity": (.definitions.tool.properties.elixirCommunity | .type = ["string", "null"] | del(.minLength, .maxLength, .pattern, .format)),
+    "link": (.definitions.tool.properties.link | .type = ["string", "null"] | del(.minLength, .maxLength, .pattern, .format)),
+    "download": (.definitions.tool.properties.download | .type = ["string", "null"] | del(.minLength, .maxLength, .pattern, .format)),
+    "documentation": (.definitions.tool.properties.documentation | .type = ["string", "null"] | del(.minLength, .maxLength, .pattern, .format)),
+    "publication": (.definitions.tool.properties.publication | .type = ["string", "null"] | del(.minLength, .maxLength, .pattern, .format)),
+    "credit": (.definitions.tool.properties.credit | .type = ["string", "null"] | del(.minLength, .maxLength, .pattern, .format))
   },
   "required": ["name", "description", "homepage", "version", "otherID", "toolType", 
                "operatingSystem", "language", "license", "collectionID", "maturity", 
                "cost", "accessibility", "elixirPlatform", "elixirNode", "elixirCommunity",
                "link", "download", "documentation", "publication", "credit"],
   "definitions": {
-    "urlftpType": .definitions.urlftpType,
-    "versionType": .definitions.versionType,
-    "textType": .definitions.textType
+    "urlftpType": (.definitions.urlftpType | del(.minLength, .maxLength, .pattern, .format)),
+    "versionType": (.definitions.versionType | del(.minLength, .maxLength, .pattern, .format)),
+    "textType": (.definitions.textType | del(.minLength, .maxLength, .pattern, .format))
   },
   "additionalProperties": false
-}' biotoolsj.json > edam_mapping.json 
+}' biotoolsj.json > base.json
 
 
 jq --argjson enums "$(cat enums.json)" '{
@@ -44,10 +44,10 @@ jq --argjson enums "$(cat enums.json)" '{
   "type": "object",
   "properties": {
     "topic": (.definitions.tool.properties.topic 
-              | .items.properties.uri = null 
+              | del(.items.properties.uri) 
               | .items.properties.term.enum = $enums.topics
               | .items.required = ["topic"]),
-    "function": (.definitions.tool.properties.function | .items.properties.operation.items.properties.uri = null 
+    "function": (.definitions.tool.properties.function | del(.items.properties.operation.items.properties.uri) 
     | .items.properties.operation.items.properties.term.enum = $enums.operations 
     | .items.properties.note = null
     | .items.properties.cmd = null

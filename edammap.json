@@ -276,8 +276,7 @@
               "Immunomics",
               "Epistasis"
             ]
-          },
-          "uri": null
+          }
         },
         "additionalProperties": false,
         "$comment": "An EDAM Topic concept URL and / or term are specified, e.g. 'Proteomics', http://edamontology.org/topic_0121.",
@@ -817,8 +816,7 @@
                     "Amplification detection",
                     "Protein design"
                   ]
-                },
-                "uri": null
+                }
               },
               "additionalProperties": false,
               "$comment": "An EDAM Operation concept URL and / or term are specified, e.g. 'Multiple sequence alignment', http://edamontology.org/operation_0492."
