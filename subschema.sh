@@ -69,7 +69,6 @@ def clean_constraints:
   
   "name": "EDAM mapping",
   "description": "Description of topics and function for a bioinformatics using the EDAM vocabulary.",
-  "strict": true,
   "type": "object",
   "properties": {
     "topic": (.definitions.tool.properties.topic 
