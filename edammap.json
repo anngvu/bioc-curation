@@ -1,5 +1,7 @@
 {
-  "description": "EDAM mapping schema for topics and function.",
+  "name": "EDAM mapping",
+  "description": "Description of topics and function for a bioinformatics using the EDAM vocabulary.",
+  "strict": true,
   "type": "object",
   "properties": {
     "topic": {
@@ -838,14 +840,11 @@
                 }
               },
               "required": [
-                "data"
+                "data",
+                "format"
               ],
               "additionalProperties": false
-            },
-            "required": [
-              "data",
-              "format"
-            ]
+            }
           },
           "output": {
             "type": "array",
@@ -871,14 +870,11 @@
                 }
               },
               "required": [
-                "data"
+                "data",
+                "format"
               ],
               "additionalProperties": false
-            },
-            "required": [
-              "data",
-              "format"
-            ]
+            }
           }
         },
         "required": [

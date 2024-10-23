@@ -66,7 +66,10 @@ def clean_constraints:
   );
 
 {
-  "description": "EDAM mapping schema for topics and function.",
+  
+  "name": "EDAM mapping",
+  "description": "Description of topics and function for a bioinformatics using the EDAM vocabulary.",
+  "strict": true,
   "type": "object",
   "properties": {
     "topic": (.definitions.tool.properties.topic 
@@ -80,8 +83,8 @@ def clean_constraints:
     | del(.items.properties.note)
     | del(.items.properties.cmd)
     | .items.properties.operation.required = ["term"]
-    | .items.properties.input.required = ["data", "format"]
-    | .items.properties.output.required = ["data", "format"]
+    | .items.properties.input.items.required = ["data", "format"]
+    | .items.properties.output.items.required = ["data", "format"]
     | .items.required = ["operation", "input", "output"]
     | clean_constraints),
   },
