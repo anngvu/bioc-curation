@@ -7,7 +7,7 @@ def clean_constraints:
       del(.minLength, .maxLength, .pattern, .format,
           .minimum, .maximum, .multipleOf,
           .patternProperties, .unevaluatedProperties, .propertyNames, .minProperties, .maxProperties,
-          .unevaluatedItems, .contains, .minContains, .maxContains, .minItems, .maxItems, .uniqueItems)
+          .unevaluatedItems, .contains, .minContains, .maxContains, .minItems, .maxItems, .uniqueItems, .anyOf)
     else .
     end
   );

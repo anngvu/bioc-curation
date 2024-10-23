@@ -52,12 +52,6 @@
             "title": "Value of tool identifier",
             "description": "Value of tool identifier.",
             "type": "string",
-            "anyOf": [
-              {},
-              {},
-              {},
-              {}
-            ],
             "examples": [
               "10.1038/nmeth.1701"
             ]
@@ -913,11 +907,7 @@
           "orcidid": {
             "title": "Tool credit ORCID iD",
             "description": "Unique identifier (ORCID iD) of a person that is credited. (NOTE: Open Researcher and Contributor IDs (ORCID IDs) provide a persistent reference to information on a researcher, see http://orcid.org/.)",
-            "type": "string",
-            "anyOf": [
-              {},
-              {}
-            ]
+            "type": "string"
           },
           "gridid": {
             "title": "Tool credit GRID ID",
