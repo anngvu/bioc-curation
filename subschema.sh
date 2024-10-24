@@ -13,7 +13,6 @@ def clean_constraints:
   );
 
 {
-  "description": .description,
   "type": "object",
   "properties": {
     "name": (.definitions.tool.properties.name | clean_constraints),
