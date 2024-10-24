@@ -16,7 +16,7 @@ def clean_constraints:
   "type": "object",
   "properties": {
     "name": (.definitions.tool.properties.name | clean_constraints),
-    "description": "Description of a bioinformatics tool.",
+    "description": (.definitions.tool.properties.description | clean_constraints),
     "homepage": (.definitions.tool.properties.homepage | clean_constraints),
     "version": (.definitions.tool.properties.version | clean_constraints),
     "otherID": (.definitions.tool.properties.otherID | .type = ["string", "null"] | clean_constraints),

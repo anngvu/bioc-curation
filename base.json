@@ -9,7 +9,14 @@
         "needle"
       ]
     },
-    "description": "Description of a bioinformatics tool.",
+    "description": {
+      "title": "Tool description",
+      "description": "Textual description of the software.\nThis can be a few sentences copy-pasted from the software homepage.",
+      "type": "string",
+      "examples": [
+        "needle reads two input sequences and writes their optimal global sequence alignment to file. It uses the Needleman-Wunsch alignment algorithm to find the optimum alignment (including gaps) of two sequences along their entire length. The algorithm uses a dynamic programming method to ensure the alignment is optimum, by exploring all possible alignments and choosing the best."
+      ]
+    },
     "homepage": {
       "$ref": "#/definitions/urlftpType",
       "title": "Tool homepage URL",
