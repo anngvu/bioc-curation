@@ -1,27 +1,23 @@
 {
-  "description": "Description of one or more bioinformatics tools - application software with well-defined data processing functions (inputs, outputs and operations).  This includes simple tools with one or a few closely related functions, and complex, multimodal tools with many functions.  Tools may be available available for immediate use as online services, or in a form which which you can download, install, configure and run yourself.",
   "type": "object",
   "properties": {
     "name": {
       "title": "Tool name",
       "description": "Canonical software name assigned by the software developer or service provider.",
-      "type": "string",
-      "examples": [
-        "needle"
-      ]
+      "type": "string"
     },
-    "description": "Description of a bioinformatics tool.",
+    "description": {
+      "title": "Tool description",
+      "description": "Textual description of the software.\nThis can be a few sentences copy-pasted from the software homepage.",
+      "type": "string"
+    },
     "homepage": {
-      "$ref": "#/definitions/urlftpType",
-      "title": "Tool homepage URL",
-      "description": "Homepage of the software, or some URL that best serves this purpose."
+      "$ref": "#/definitions/urlftpType"
     },
     "version": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/versionType",
-        "title": "Tool version information",
-        "description": "Version information (typically a version number) of the software applicable to this bio.tools entry."
+        "$ref": "#/definitions/versionType"
       }
     },
     "otherID": {
@@ -43,26 +39,17 @@
               "rrid",
               "cpe",
               "biotoolsCURIE"
-            ],
-            "examples": [
-              "doi"
             ]
           },
           "value": {
             "title": "Value of tool identifier",
             "description": "Value of tool identifier.",
-            "type": "string",
-            "examples": [
-              "10.1038/nmeth.1701"
-            ]
+            "type": "string"
           },
           "version": {
             "title": "Tool version information (other IDs)",
             "description": "Version information (typically a version number) of the software applicable to this identifier.",
-            "type": "string",
-            "examples": [
-              "2.0 - 2.7"
-            ]
+            "type": "string"
           }
         },
         "required": [
@@ -535,10 +522,7 @@
       "items": {
         "title": "Tool collection ID",
         "description": "A tag which assigns the software to a collection in bio.tools.",
-        "type": "string",
-        "examples": [
-          "emboss"
-        ]
+        "type": "string"
       }
     },
     "maturity": {
@@ -667,9 +651,7 @@
         "type": "object",
         "properties": {
           "url": {
-            "$ref": "#/definitions/urlftpType",
-            "title": "Link URL",
-            "description": "A link of some relevance to the software (URL)."
+            "$ref": "#/definitions/urlftpType"
           },
           "type": {
             "type": "array",
@@ -694,9 +676,7 @@
             }
           },
           "note": {
-            "$ref": "#/definitions/textType",
-            "title": "Link comment",
-            "description": "Comment about the link."
+            "$ref": "#/definitions/textType"
           }
         },
         "required": [
@@ -717,9 +697,7 @@
         "type": "object",
         "properties": {
           "url": {
-            "$ref": "#/definitions/urlftpType",
-            "title": "Download URL",
-            "description": "Link to download (or repository providing a download) for the software."
+            "$ref": "#/definitions/urlftpType"
           },
           "type": {
             "title": "Download type",
@@ -747,14 +725,10 @@
             ]
           },
           "note": {
-            "$ref": "#/definitions/textType",
-            "title": "Downlad comment",
-            "description": "Comment about the download."
+            "$ref": "#/definitions/textType"
           },
           "version": {
-            "$ref": "#/definitions/versionType",
-            "title": "Tool version information (download)",
-            "description": "Version information (typically a version number) of the software applicable to this download."
+            "$ref": "#/definitions/versionType"
           }
         },
         "required": [
@@ -775,9 +749,7 @@
         "type": "object",
         "properties": {
           "url": {
-            "$ref": "#/definitions/urlftpType",
-            "title": "Documentation URL",
-            "description": "Link to documentation on the web for the tool."
+            "$ref": "#/definitions/urlftpType"
           },
           "type": {
             "type": "array",
@@ -805,9 +777,7 @@
             }
           },
           "note": {
-            "$ref": "#/definitions/textType",
-            "title": "Documentation comment",
-            "description": "Comment about the documentation."
+            "$ref": "#/definitions/textType"
           }
         },
         "required": [
@@ -829,26 +799,17 @@
           "doi": {
             "title": "Publication DOI",
             "description": "Digital Object Identifier (DOI) of a publication about the software.",
-            "type": "string",
-            "examples": [
-              "10.1093/nar/gkv1116"
-            ]
+            "type": "string"
           },
           "pmid": {
             "title": "Publication PMID",
             "description": "PubMed Identifier (PMID) of a publication about the software.",
-            "type": "string",
-            "examples": [
-              "26538599"
-            ]
+            "type": "string"
           },
           "pmcid": {
             "title": "Publicaction PMCID",
             "description": "PubMed Central Identifier (PMCID) of a publication about the software.",
-            "type": "string",
-            "examples": [
-              "PMC4702812"
-            ]
+            "type": "string"
           },
           "type": {
             "type": "array",
@@ -867,13 +828,10 @@
             }
           },
           "note": {
-            "$ref": "#/definitions/textType",
-            "title": "Publication comment",
-            "description": "Comment about the publication."
+            "$ref": "#/definitions/textType"
           },
           "version": {
-            "$ref": "#/definitions/versionType",
-            "description": "Version information (typically a version number) of the software applicable to this publication."
+            "$ref": "#/definitions/versionType"
           }
         },
         "additionalProperties": false
@@ -955,9 +913,7 @@
             }
           },
           "note": {
-            "$ref": "#/definitions/textType",
-            "title": "Tool credit comment",
-            "description": "A comment about the credit.\nThis can elaborate on the contribution of the credited entity."
+            "$ref": "#/definitions/textType"
           }
         },
         "required": [
@@ -994,28 +950,19 @@
     "urlftpType": {
       "title": "Tool homepage URL",
       "description": "Homepage of the software, or some URL that best serves this purpose.",
-      "type": "string",
-      "examples": [
-        "https://someurl.org"
-      ]
+      "type": "string"
     },
     "versionType": {
       "title": "Tool version information",
       "description": "Tool version label or version range.",
       "type": "string",
-      "$comment": "The name has a 100 character limit and may only contain space, uppercase and lowercase English letters, decimal digits, plus symbol, period, comma, dash, colon, semicolon and parentheses.",
-      "examples": [
-        "2.0 - 2.7"
-      ]
+      "$comment": "The name has a 100 character limit and may only contain space, uppercase and lowercase English letters, decimal digits, plus symbol, period, comma, dash, colon, semicolon and parentheses."
     },
     "textType": {
       "title": "Free text",
       "description": "Free text with a minimum length of 10 and maximum length of 1000.",
       "type": "string",
-      "$comment": "Line feeds, carriage returns, tabs, leading and trailing spaces, and multiple spaces are not allowed / will be removed.",
-      "examples": [
-        "Comment about the link."
-      ]
+      "$comment": "Line feeds, carriage returns, tabs, leading and trailing spaces, and multiple spaces are not allowed / will be removed."
     }
   },
   "additionalProperties": false

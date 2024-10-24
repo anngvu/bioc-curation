@@ -4,20 +4,23 @@ jq '
 def clean_constraints:
   walk(
     if type == "object" then
-      del(.minLength, .maxLength, .pattern, .format,
-          .minimum, .maximum, .multipleOf,
-          .patternProperties, .unevaluatedProperties, .propertyNames, .minProperties, .maxProperties,
-          .unevaluatedItems, .contains, .minContains, .maxContains, .minItems, .maxItems, .uniqueItems, .anyOf)
+      if has("$ref") then
+        del(.description, .title)
+      else
+        del(.minLength, .maxLength, .pattern, .format,
+            .minimum, .maximum, .multipleOf, .examples,
+            .patternProperties, .unevaluatedProperties, .propertyNames, .minProperties, .maxProperties,
+            .unevaluatedItems, .contains, .minContains, .maxContains, .minItems, .maxItems, .uniqueItems, .anyOf)
+      end
     else .
     end
   );
 
 {
-  "description": .description,
   "type": "object",
   "properties": {
     "name": (.definitions.tool.properties.name | clean_constraints),
-    "description": "Description of a bioinformatics tool.",
+    "description": (.definitions.tool.properties.description | clean_constraints),
     "homepage": (.definitions.tool.properties.homepage | clean_constraints),
     "version": (.definitions.tool.properties.version | clean_constraints),
     "otherID": (.definitions.tool.properties.otherID | .type = ["string", "null"] | clean_constraints),
@@ -49,7 +52,6 @@ def clean_constraints:
   },
   "additionalProperties": false
 }' biotoolsj.json > base.json
-
 
 jq --argjson enums "$(cat enums.json)" '
 
