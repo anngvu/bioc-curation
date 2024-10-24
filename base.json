@@ -4,18 +4,12 @@
     "name": {
       "title": "Tool name",
       "description": "Canonical software name assigned by the software developer or service provider.",
-      "type": "string",
-      "examples": [
-        "needle"
-      ]
+      "type": "string"
     },
     "description": {
       "title": "Tool description",
       "description": "Textual description of the software.\nThis can be a few sentences copy-pasted from the software homepage.",
-      "type": "string",
-      "examples": [
-        "needle reads two input sequences and writes their optimal global sequence alignment to file. It uses the Needleman-Wunsch alignment algorithm to find the optimum alignment (including gaps) of two sequences along their entire length. The algorithm uses a dynamic programming method to ensure the alignment is optimum, by exploring all possible alignments and choosing the best."
-      ]
+      "type": "string"
     },
     "homepage": {
       "$ref": "#/definitions/urlftpType",
@@ -49,26 +43,17 @@
               "rrid",
               "cpe",
               "biotoolsCURIE"
-            ],
-            "examples": [
-              "doi"
             ]
           },
           "value": {
             "title": "Value of tool identifier",
             "description": "Value of tool identifier.",
-            "type": "string",
-            "examples": [
-              "10.1038/nmeth.1701"
-            ]
+            "type": "string"
           },
           "version": {
             "title": "Tool version information (other IDs)",
             "description": "Version information (typically a version number) of the software applicable to this identifier.",
-            "type": "string",
-            "examples": [
-              "2.0 - 2.7"
-            ]
+            "type": "string"
           }
         },
         "required": [
@@ -541,10 +526,7 @@
       "items": {
         "title": "Tool collection ID",
         "description": "A tag which assigns the software to a collection in bio.tools.",
-        "type": "string",
-        "examples": [
-          "emboss"
-        ]
+        "type": "string"
       }
     },
     "maturity": {
@@ -835,26 +817,17 @@
           "doi": {
             "title": "Publication DOI",
             "description": "Digital Object Identifier (DOI) of a publication about the software.",
-            "type": "string",
-            "examples": [
-              "10.1093/nar/gkv1116"
-            ]
+            "type": "string"
           },
           "pmid": {
             "title": "Publication PMID",
             "description": "PubMed Identifier (PMID) of a publication about the software.",
-            "type": "string",
-            "examples": [
-              "26538599"
-            ]
+            "type": "string"
           },
           "pmcid": {
             "title": "Publicaction PMCID",
             "description": "PubMed Central Identifier (PMCID) of a publication about the software.",
-            "type": "string",
-            "examples": [
-              "PMC4702812"
-            ]
+            "type": "string"
           },
           "type": {
             "type": "array",
@@ -1000,28 +973,19 @@
     "urlftpType": {
       "title": "Tool homepage URL",
       "description": "Homepage of the software, or some URL that best serves this purpose.",
-      "type": "string",
-      "examples": [
-        "https://someurl.org"
-      ]
+      "type": "string"
     },
     "versionType": {
       "title": "Tool version information",
       "description": "Tool version label or version range.",
       "type": "string",
-      "$comment": "The name has a 100 character limit and may only contain space, uppercase and lowercase English letters, decimal digits, plus symbol, period, comma, dash, colon, semicolon and parentheses.",
-      "examples": [
-        "2.0 - 2.7"
-      ]
+      "$comment": "The name has a 100 character limit and may only contain space, uppercase and lowercase English letters, decimal digits, plus symbol, period, comma, dash, colon, semicolon and parentheses."
     },
     "textType": {
       "title": "Free text",
       "description": "Free text with a minimum length of 10 and maximum length of 1000.",
       "type": "string",
-      "$comment": "Line feeds, carriage returns, tabs, leading and trailing spaces, and multiple spaces are not allowed / will be removed.",
-      "examples": [
-        "Comment about the link."
-      ]
+      "$comment": "Line feeds, carriage returns, tabs, leading and trailing spaces, and multiple spaces are not allowed / will be removed."
     }
   },
   "additionalProperties": false

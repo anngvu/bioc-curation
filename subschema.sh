@@ -5,7 +5,7 @@ def clean_constraints:
   walk(
     if type == "object" then
       del(.minLength, .maxLength, .pattern, .format,
-          .minimum, .maximum, .multipleOf,
+          .minimum, .maximum, .multipleOf, .examples,
           .patternProperties, .unevaluatedProperties, .propertyNames, .minProperties, .maxProperties,
           .unevaluatedItems, .contains, .minContains, .maxContains, .minItems, .maxItems, .uniqueItems, .anyOf)
     else .
