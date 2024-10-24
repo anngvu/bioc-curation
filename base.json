@@ -12,16 +12,12 @@
       "type": "string"
     },
     "homepage": {
-      "$ref": "#/definitions/urlftpType",
-      "title": "Tool homepage URL",
-      "description": "Homepage of the software, or some URL that best serves this purpose."
+      "$ref": "#/definitions/urlftpType"
     },
     "version": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/versionType",
-        "title": "Tool version information",
-        "description": "Version information (typically a version number) of the software applicable to this bio.tools entry."
+        "$ref": "#/definitions/versionType"
       }
     },
     "otherID": {
@@ -655,9 +651,7 @@
         "type": "object",
         "properties": {
           "url": {
-            "$ref": "#/definitions/urlftpType",
-            "title": "Link URL",
-            "description": "A link of some relevance to the software (URL)."
+            "$ref": "#/definitions/urlftpType"
           },
           "type": {
             "type": "array",
@@ -682,9 +676,7 @@
             }
           },
           "note": {
-            "$ref": "#/definitions/textType",
-            "title": "Link comment",
-            "description": "Comment about the link."
+            "$ref": "#/definitions/textType"
           }
         },
         "required": [
@@ -705,9 +697,7 @@
         "type": "object",
         "properties": {
           "url": {
-            "$ref": "#/definitions/urlftpType",
-            "title": "Download URL",
-            "description": "Link to download (or repository providing a download) for the software."
+            "$ref": "#/definitions/urlftpType"
           },
           "type": {
             "title": "Download type",
@@ -735,14 +725,10 @@
             ]
           },
           "note": {
-            "$ref": "#/definitions/textType",
-            "title": "Downlad comment",
-            "description": "Comment about the download."
+            "$ref": "#/definitions/textType"
           },
           "version": {
-            "$ref": "#/definitions/versionType",
-            "title": "Tool version information (download)",
-            "description": "Version information (typically a version number) of the software applicable to this download."
+            "$ref": "#/definitions/versionType"
           }
         },
         "required": [
@@ -763,9 +749,7 @@
         "type": "object",
         "properties": {
           "url": {
-            "$ref": "#/definitions/urlftpType",
-            "title": "Documentation URL",
-            "description": "Link to documentation on the web for the tool."
+            "$ref": "#/definitions/urlftpType"
           },
           "type": {
             "type": "array",
@@ -793,9 +777,7 @@
             }
           },
           "note": {
-            "$ref": "#/definitions/textType",
-            "title": "Documentation comment",
-            "description": "Comment about the documentation."
+            "$ref": "#/definitions/textType"
           }
         },
         "required": [
@@ -846,13 +828,10 @@
             }
           },
           "note": {
-            "$ref": "#/definitions/textType",
-            "title": "Publication comment",
-            "description": "Comment about the publication."
+            "$ref": "#/definitions/textType"
           },
           "version": {
-            "$ref": "#/definitions/versionType",
-            "description": "Version information (typically a version number) of the software applicable to this publication."
+            "$ref": "#/definitions/versionType"
           }
         },
         "additionalProperties": false
@@ -934,9 +913,7 @@
             }
           },
           "note": {
-            "$ref": "#/definitions/textType",
-            "title": "Tool credit comment",
-            "description": "A comment about the credit.\nThis can elaborate on the contribution of the credited entity."
+            "$ref": "#/definitions/textType"
           }
         },
         "required": [

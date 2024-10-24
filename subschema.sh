@@ -4,10 +4,14 @@ jq '
 def clean_constraints:
   walk(
     if type == "object" then
-      del(.minLength, .maxLength, .pattern, .format,
-          .minimum, .maximum, .multipleOf, .examples,
-          .patternProperties, .unevaluatedProperties, .propertyNames, .minProperties, .maxProperties,
-          .unevaluatedItems, .contains, .minContains, .maxContains, .minItems, .maxItems, .uniqueItems, .anyOf)
+      if has("$ref") then
+        del(.description, .title)
+      else
+        del(.minLength, .maxLength, .pattern, .format,
+            .minimum, .maximum, .multipleOf, .examples,
+            .patternProperties, .unevaluatedProperties, .propertyNames, .minProperties, .maxProperties,
+            .unevaluatedItems, .contains, .minContains, .maxContains, .minItems, .maxItems, .uniqueItems, .anyOf)
+      end
     else .
     end
   );
@@ -48,7 +52,6 @@ def clean_constraints:
   },
   "additionalProperties": false
 }' biotoolsj.json > base.json
-
 
 jq --argjson enums "$(cat enums.json)" '
 
