@@ -21,10 +21,7 @@
       }
     },
     "otherID": {
-      "type": [
-        "string",
-        "null"
-      ],
+      "type": "array",
       "items": {
         "title": "Tool unique identifiers",
         "description": "A unique identifier of the software, typically assigned by an ID-assignment authority other than bio.tools.",
@@ -60,10 +57,7 @@
       }
     },
     "toolType": {
-      "type": [
-        "string",
-        "null"
-      ],
+      "type": "array",
       "items": {
         "title": "Tool type",
         "description": "A type of application software: a discrete software entity can have more than one type.",
@@ -89,10 +83,7 @@
       }
     },
     "operatingSystem": {
-      "type": [
-        "string",
-        "null"
-      ],
+      "type": "array",
       "items": {
         "title": "Operating system",
         "description": "The operating system supported by a downloadable software.",
@@ -105,10 +96,7 @@
       }
     },
     "language": {
-      "type": [
-        "string",
-        "null"
-      ],
+      "type": "array",
       "items": {
         "title": "Programming language",
         "description": "Name of programming language, e.g. used for the software source code or compatible with an API.",
@@ -179,10 +167,7 @@
     "license": {
       "title": "Software or data usage license",
       "description": "Software or data usage license.",
-      "type": [
-        "string",
-        "null"
-      ],
+      "type": "string",
       "enum": [
         "0BSD",
         "AAL",
@@ -515,10 +500,7 @@
       "$comment": "Identifier from the SPDX license list (https://spdx.org/licenses/).  In future, based on the supplied license, a label e.g. 'Open-source' may be applied to the entry in bio.tools.  Use 'Proprietary' where the software must be obtained from the provider (e.g. for money), and is then owned.  Use 'Freeware' for proprietary software that is available at no monetary cost. Use 'Not licensed' for software which is not licensed and is not proprietary, and 'Other' for software under license not currently supported by biotoolsSchema. Note that for online services, the license attribute refers to the license of the underlying software or data, or a part of those."
     },
     "collectionID": {
-      "type": [
-        "string",
-        "null"
-      ],
+      "type": "array",
       "items": {
         "title": "Tool collection ID",
         "description": "A tag which assigns the software to a collection in bio.tools.",
@@ -528,10 +510,7 @@
     "maturity": {
       "title": "Sofware product maturity",
       "description": "Development stage of the software product.",
-      "type": [
-        "string",
-        "null"
-      ],
+      "type": "string",
       "enum": [
         "Emerging",
         "Mature",
@@ -541,10 +520,7 @@
     "cost": {
       "title": "Cost",
       "description": "Monetary cost of acquiring the software.",
-      "type": [
-        "string",
-        "null"
-      ],
+      "type": "string",
       "enum": [
         "Free of charge",
         "Free of charge (with restrictions)",
@@ -554,97 +530,14 @@
     "accessibility": {
       "title": "Accessibility",
       "description": "Whether an online service is freely available for use.",
-      "type": [
-        "string",
-        "null"
-      ],
+      "type": "string",
       "enum": [
         "Open access",
         "Restricted access"
       ]
     },
-    "elixirPlatform": {
-      "type": [
-        "string",
-        "null"
-      ],
-      "items": {
-        "title": "ELIXIR platform",
-        "description": "ELIXIR platform credited for developing or providing the software.",
-        "type": "string",
-        "enum": [
-          "Data",
-          "Tools",
-          "Compute",
-          "Interoperability",
-          "Training"
-        ]
-      }
-    },
-    "elixirNode": {
-      "type": [
-        "string",
-        "null"
-      ],
-      "items": {
-        "title": "ELIXIR node",
-        "description": "ELIXIR node credited for developing or providing the software - the software is in Node Service Delivery Plan.",
-        "type": "string",
-        "enum": [
-          "Belgium",
-          "Czech Republic",
-          "Denmark",
-          "EMBL",
-          "Estonia",
-          "Finland",
-          "France",
-          "Germany",
-          "Greece",
-          "Hungary",
-          "Ireland",
-          "Israel",
-          "Italy",
-          "Luxembourg",
-          "Netherlands",
-          "Norway",
-          "Portugal",
-          "Slovenia",
-          "Spain",
-          "Sweden",
-          "Switzerland",
-          "UK"
-        ]
-      }
-    },
-    "elixirCommunity": {
-      "type": [
-        "string",
-        "null"
-      ],
-      "items": {
-        "title": "ELIXIR platform",
-        "description": "ELIXIR (or associated) community to which the software is relevant.",
-        "type": "string",
-        "enum": [
-          "3D-BioInfo",
-          "Federated Human Data",
-          "Galaxy",
-          "Human Copy Number Variation",
-          "Intrinsically Disordered Proteins",
-          "Marine Metagenomics",
-          "Metabolomics",
-          "Microbial Biotechnology",
-          "Plant Sciences",
-          "Proteomics",
-          "Rare Diseases"
-        ]
-      }
-    },
     "link": {
-      "type": [
-        "string",
-        "null"
-      ],
+      "type": "array",
       "items": {
         "title": "Miscellaneous link",
         "description": "A miscellaneous link for the software e.g. repository, issue tracker or mailing list.",
@@ -687,10 +580,7 @@
       }
     },
     "download": {
-      "type": [
-        "string",
-        "null"
-      ],
+      "type": "array",
       "items": {
         "title": "Tool downloads",
         "description": "A link to a download for the software, e.g. source code, virtual machine image or container.",
@@ -739,10 +629,7 @@
       }
     },
     "documentation": {
-      "type": [
-        "string",
-        "null"
-      ],
+      "type": "array",
       "items": {
         "title": "Tool documentation",
         "description": "A link to documentation about the software e.g. user manual, API documentation or training material.",
@@ -788,10 +675,7 @@
       }
     },
     "publication": {
-      "type": [
-        "string",
-        "null"
-      ],
+      "type": "array",
       "items": {
         "description": "A publication about the software.",
         "type": "object",
@@ -838,10 +722,7 @@
       }
     },
     "credit": {
-      "type": [
-        "string",
-        "null"
-      ],
+      "type": "array",
       "items": {
         "title": "Tool credits",
         "description": "An individual or organisation that should be credited, or may be contacted about the software.",
@@ -937,9 +818,6 @@
     "maturity",
     "cost",
     "accessibility",
-    "elixirPlatform",
-    "elixirNode",
-    "elixirCommunity",
     "link",
     "download",
     "documentation",
