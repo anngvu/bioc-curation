@@ -35,5 +35,5 @@ process_subset "topics"
 process_subset "operations"
 process_subset "data"
 
-jq -s '.[1:] | map({ (keys[0]) : (.[(keys[0])] | map(.lbl)) }) | add' subsets/*.json > enums.json
+jq -s '.[0:] | map({ (keys[0]) : (.[(keys[0])] | map(.lbl)) }) | add' subsets/*.json > enums.json
 rm -f tmp.json
