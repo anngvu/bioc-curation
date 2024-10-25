@@ -26,7 +26,7 @@ process_subset() {
     --select annotations \
     --output "tmp.json"
   
-  jq --arg subset "$subset" '{ ($subset): [.graphs[].nodes[].lbl] }' "tmp.json" > subsets/edam_"$subset".json
+  jq --arg subset "$subset" '{ ($subset): [ .graphs[0].nodes[] | { id: .id, lbl: .lbl } ] }' "tmp.json" > subsets/edam_"$subset".json
 }
 
 # Process the subsets
@@ -35,4 +35,5 @@ process_subset "topics"
 process_subset "operations"
 process_subset "data"
 
-jq -s 'add' subsets/*.json > enums.json
+jq -s '.[0:] | map({ (keys[0]) : (.[(keys[0])] | map(.lbl)) }) | add' subsets/*.json > enums.json
+rm -f tmp.json
