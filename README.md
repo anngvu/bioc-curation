@@ -3,17 +3,17 @@
 
 ### About
 
-Example curation of [Bioconductor](https://bioconductor.org/) software packages into the [bio.tools schema](https://github.com/bio-tools/biotoolsSchema) using OpenAI, focusing mainly on the EDAM mapping part of the schema specification. Referring to the example screenshot below, "basic" tool description is widely available for Bioconductor packages but EDAM functionality is less well-characterizeed, which is why it is the focus here.  
+Example curation of [Bioconductor](https://bioconductor.org/) software packages into the [bio.tools schema](https://github.com/bio-tools/biotoolsSchema) using OpenAI, focusing mainly on the EDAM mapping part of the schema specification. Referring to the example screenshot below, basic tool description is already mostly available for Bioconductor packages but EDAM functionality is less well-characterized, which is why it is the focus here.  
 
 
 
-This is R&D work to figure out how to optimize ontology curation functionality for [a tool](https://github.com/anngvu/accent) purposely built to help (Sage) curators curate data for projects that involve EDAM, such as https://cancercomplexity.synapse.org/Explore/Tools and https://openchallenges.io/challenge. However, this might also be useful to the wider curation community.
+This is also R&D work to figure out how to optimize ontology curation functionality for [a tool](https://github.com/anngvu/accent) purposely built to help (Sage) curators curate data for projects that involve EDAM, such as https://cancercomplexity.synapse.org/Explore/Tools and https://openchallenges.io/challenge. However, this might also be useful to the wider curation community.
 
-This is experimental, and it might be interesting to compare with existing results, additional human-curated results, [EDAMmap](https://github.com/edamontology/edammap), or other approaches. 
+These experimental results should be interesting to compare with existing curation, additional human-curated results, [EDAMmap](https://github.com/edamontology/edammap), or other approaches. 
 
 ### Methodology
 
-Rerun the example notebook in Google Colab or locally; plug in other packages of interest. 
+Rerun the example notebook in Google Colab or locally; you can modify the notebook to plug in other packages of interest. 
 You will only need an OpenAI API key. 
 *See [OpenAI usage costs](https://github.com/anngvu/accent/tree/web-ui?tab=readme-ov-file#openai-usage-costs](https://github.com/anngvu/bioc-curation/?tab=readme-ov-file#openai-usage-costs).
 
