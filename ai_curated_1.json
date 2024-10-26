@@ -1,0 +1,190 @@
+[
+    {
+        "name": "chromVAR",
+        "description": "Determine variation in chromatin accessibility across sets of annotations or peaks. Designed primarily for single-cell or sparse chromatin accessibility data, e.g. from scATAC-seq or sparse bulk ATAC or DNAse-seq experiments.",
+        "homepage": "http://bioconductor.org/packages/chromVAR/",
+        "version": [
+            "1.26.0"
+        ],
+        "otherID": [
+            {
+                "type": "doi",
+                "value": "10.18129/B9.bioc.chromVAR",
+                "version": "1.26.0"
+            }
+        ],
+        "toolType": [
+            "Library"
+        ],
+        "operatingSystem": [
+            "Linux",
+            "Windows",
+            "Mac"
+        ],
+        "language": [
+            "R"
+        ],
+        "license": "MIT",
+        "collectionID": [],
+        "maturity": "Mature",
+        "cost": "Free of charge",
+        "accessibility": "Open access",
+        "link": [
+            {
+                "url": "https://support.bioconductor.org/tag/chromvar",
+                "type": [
+                    "Discussion forum"
+                ],
+                "note": "Bioconductor Support site for chromVAR."
+            },
+            {
+                "url": "https://bioconductor.org/checkResults/release/bioc-LATEST/chromVAR/",
+                "type": [
+                    "Technical monitoring"
+                ],
+                "note": "Build report page for chromVAR."
+            }
+        ],
+        "download": [
+            {
+                "url": "http://bioconductor.org/packages/stats/bioc/chromVAR/",
+                "type": "Downloads page",
+                "note": "Download stats and package availability page for chromVAR."
+            }
+        ],
+        "documentation": [
+            {
+                "url": "http://bioconductor.org/packages/release/bioc/manuals/chromVAR/man/chromVAR.pdf",
+                "type": [
+                    "User manual"
+                ],
+                "note": "Reference manual for chromVAR."
+            },
+            {
+                "url": "http://bioconductor.org/packages/release/bioc/vignettes/chromVAR/inst/doc/Introduction.html",
+                "type": [
+                    "Quick start guide"
+                ],
+                "note": "Introduction vignette for chromVAR."
+            },
+            {
+                "url": "http://bioconductor.org/packages/release/bioc/news/chromVAR/NEWS",
+                "type": [
+                    "Release notes"
+                ],
+                "note": "NEWS file for chromVAR."
+            }
+        ],
+        "publication": [],
+        "credit": [
+            {
+                "name": "Alicia Schep",
+                "email": "aschep@gmail.com",
+                "typeEntity": "Person",
+                "typeRole": [
+                    "Developer",
+                    "Maintainer",
+                    "Primary contact"
+                ]
+            },
+            {
+                "name": "Jason Buenrostro",
+                "typeEntity": "Person",
+                "typeRole": [
+                    "Contributor"
+                ]
+            },
+            {
+                "name": "Caleb Lareau",
+                "typeEntity": "Person",
+                "typeRole": [
+                    "Contributor"
+                ]
+            },
+            {
+                "name": "William Greenleaf",
+                "typeEntity": "Person",
+                "typeRole": [
+                    "Contributor"
+                ],
+                "note": "Stanford University"
+            }
+        ],
+        "topic": [
+            {
+                "term": "Bioinformatics",
+                "uri": "http://edamontology.org/topic_0091"
+            },
+            {
+                "term": "Functional genomics",
+                "uri": "http://edamontology.org/topic_0085"
+            },
+            {
+                "term": "Gene regulation",
+                "uri": "http://edamontology.org/topic_0204"
+            },
+            {
+                "term": "Epigenomics",
+                "uri": "http://edamontology.org/topic_3173"
+            }
+        ],
+        "function": [
+            {
+                "operation": [
+                    {
+                        "term": "Sequence motif recognition",
+                        "uri": "http://edamontology.org/operation_0239"
+                    },
+                    {
+                        "term": "Peak calling",
+                        "uri": "http://edamontology.org/operation_3222"
+                    },
+                    {
+                        "term": "Differential binding analysis",
+                        "uri": "http://edamontology.org/operation_3677"
+                    },
+                    {
+                        "term": "Gene expression profiling",
+                        "uri": "http://edamontology.org/operation_0314"
+                    }
+                ],
+                "input": [
+                    {
+                        "data": {
+                            "term": "Sequence record",
+                            "uri": "http://edamontology.org/data_0849"
+                        },
+                        "format": [
+                            {
+                                "term": "BED",
+                                "uri": "http://edamontology.org/format_3003"
+                            },
+                            {
+                                "term": "BAM",
+                                "uri": "http://edamontology.org/format_2572"
+                            }
+                        ]
+                    }
+                ],
+                "output": [
+                    {
+                        "data": {
+                            "term": "Gene expression profile",
+                            "uri": "http://edamontology.org/data_0928"
+                        },
+                        "format": [
+                            {
+                                "term": "CSV",
+                                "uri": "http://edamontology.org/format_3752"
+                            },
+                            {
+                                "term": "JSON",
+                                "uri": "http://edamontology.org/format_3464"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]
