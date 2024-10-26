@@ -7,7 +7,7 @@ Example curation of [Bioconductor](https://bioconductor.org/) software packages 
 
 
 
-Some of this will help us work out functionality to be optimized and built into [a tool](https://github.com/anngvu/accent) purposely built to help (Sage) curators curate data for projects that involve EDAM, such as https://cancercomplexity.synapse.org/Explore/Tools and https://openchallenges.io/challenge. However, this should also be useful outside of Sage and benefit the wider curation community.
+This is R&D work to figure out how to optimize ontology curation functionality for [a tool](https://github.com/anngvu/accent) purposely built to help (Sage) curators curate data for projects that involve EDAM, such as https://cancercomplexity.synapse.org/Explore/Tools and https://openchallenges.io/challenge. However, this might also be useful to the wider curation community.
 
 This is experimental, and it might be interesting to compare with existing results, additional human-curated results, [EDAMmap](https://github.com/edamontology/edammap), or other approaches. 
 
@@ -43,7 +43,4 @@ To reproduce the entire prep as well, make sure these tools are available; set u
 ### OpenAI usage costs
 
 The minimum cost is about 10 cents to curate a package two different document sources. See the notebook for the cost calculator with costs for the example. The functionality can be translated to the batch API for 50% reduction in cost.
-
-
-
 
