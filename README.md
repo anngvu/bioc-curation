@@ -8,7 +8,7 @@ Example curation of [Bioconductor](https://bioconductor.org/) software packages 
 ![image](https://github.com/user-attachments/assets/699b9d6f-06c7-45b0-abd9-2a1f14985d1d)
 
 
-This also represents R&D work to define an optimal curation workflow to be encapsulated in tools to help (Sage) curators curate data for projects that involve EDAM, such as https://cancercomplexity.synapse.org/Explore/Tools and https://openchallenges.io/challenge. Aside from Sage curators, this might also be useful to the wider curation community.
+This also represents R&D work to define an optimal curation workflow to be encapsulated in tools to help (Sage) curators curate data for projects that involve EDAM, such as https://cancercomplexity.synapse.org/Explore/Tools and https://openchallenges.io/challenge. Aside from Sage curators, this might also be useful to the wider curation community. Feel free to reuse any part -- for example, this material has been adapted for the [ELIXIR 2024 Biohackathon project](https://github.com/elixir-europe/biohackathon-projects-2024/blob/main/27.md).
 
 These experimental results should be interesting to compare with existing curation, additional human-curated results, [EDAMmap](https://github.com/edamontology/edammap), or other approaches. 
 
@@ -31,7 +31,7 @@ But to reproduce and understand the other prep as well, make sure these tools ar
   2) The EDAM subschema is specifically structured for AI to more easily work with, with concept terms inserted as regular enums (there is post-processing to pull in uris).
   3) We often want to use different document sources for curating EDAM than when curating everything else.
   4) Doing two separate passes reduces the chance of going over context length limits.
-  5) Initially, the idea was to use OpenAI's [strict structured outputs](https://platform.openai.com/docs/guides/structured-outputs/supported-schemas) if possible, though we ended up using customized prompting workflow for everything because strict structured 
+  5) Initially, the idea was to use OpenAI's [strict structured outputs](https://platform.openai.com/docs/guides/structured-outputs/supported-schemas) if possible, though we ended up using customized prompting workflow for everything because strict structured outputs turned out to have some limitations anyway.
   - Base schema (`base.json`):
     - A single tool object instead of current array because extraction will be per-tool.
     - Remove [unsupported type-specific keywords](https://platform.openai.com/docs/guides/structured-outputs/some-type-specific-keywords-are-not-yet-supported). 
