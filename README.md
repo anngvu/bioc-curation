@@ -1,5 +1,5 @@
 
-## Curation of Bioconductor packages into BioTools schema
+## Curation of Bioconductor packages into EDAM / BioTools schema
 
 ### About
 
